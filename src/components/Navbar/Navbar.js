@@ -7,10 +7,10 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <div onClick={() => setOpen(!open)} className="humberger-menu w-8 h-8 absolute top-0 left-0 md:hidden">
+      <div onClick={() => setOpen(!open)} className="humberger-menu w-10 h-10 absolute top-3 left-3 md:hidden z-10">
         {open ? <XIcon /> : <MenuAlt1Icon />}
       </div>
-      <nav className="nav-container flex flex-col md:flex-row justify-center items-center bg-gradient-to-r from-indigo-400 to-blue-800 md:h-16">
+      <nav className={`nav-container flex flex-col md:flex-row justify-evenly text-center md:justify-center md:items-center pt-16 md:pt-0 bg-gradient-to-r from-indigo-400 to-blue-800 w-1/2 md:w-full h-screen md:h-16 absolute top-0 md:static duration-300 ease-in-out ${open ? 'left-0' : 'left-[-500px]'}`}>
         <NavLink
           className={({ isActive }) => (isActive ? 'active-link' : 'link')}
           to="/"
