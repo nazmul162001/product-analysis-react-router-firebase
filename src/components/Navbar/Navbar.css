@@ -1,0 +1,23 @@
+.link {
+  text-decoration: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.342);
+  margin: 0 10px;
+  padding-bottom: 5px;
+  font-size: 20px;
+  color: white;
+  transition: color ease-in-out 300ms;
+}
+
+.link:hover {
+  color: #ffbb00;
+}
+
+.active-link {
+  text-decoration: none;
+  border-bottom: 2px solid #ffbb00;
+  margin: 0 10px;
+  padding-bottom: 5px;
+  font-size: 20px;
+  transition: color ease-in-out 300ms;
+  color: #ffbb00;
+}
