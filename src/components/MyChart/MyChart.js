@@ -1,5 +1,4 @@
 import React from 'react';
-import './MyChart.css';
 import {
   Bar,
   BarChart,
@@ -53,7 +52,7 @@ const MyChart = () => {
   ];
 
   return (
-    <div className='investment-chart relative -z-10'>
+    <div className='investment-chart'>
       <h2 className="text-3xl text-center text-gray-400 pt-10">
         Our Annual investment, sell & revenue <br></br> with BarChart{' '}
       </h2>
@@ -62,7 +61,7 @@ const MyChart = () => {
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
           <YAxis />
-          <Tooltip />
+          <Tooltip></Tooltip>
           <Legend />
           <Bar dataKey="month" fill="#e67e22" />
           <Bar dataKey="investment" fill="#8884d8" />
