@@ -6,7 +6,7 @@ import { MenuAlt1Icon, XIcon } from '@heroicons/react/solid'
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
-    <>
+    <div className='sticky top-0'>
       <div onClick={() => setOpen(!open)} className="humberger-menu w-10 h-10 absolute top-3 left-3 md:hidden z-10">
         {open ? <XIcon /> : <MenuAlt1Icon />}
       </div>
@@ -42,7 +42,7 @@ const Navbar = () => {
           About
         </NavLink>
       </nav>
-    </>
+    </div>
   );
 };
 

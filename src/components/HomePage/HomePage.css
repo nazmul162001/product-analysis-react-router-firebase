@@ -1,0 +1,15 @@
+.hero-title1 {
+  background-color: #00BCD4;
+  background-image: linear-gradient(to right, #4CAF50, #00BCD4);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-title2 {
+  background-color: #00BCD4;
+  background-image: linear-gradient(to right, #00BCD4, #4CAF50);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
