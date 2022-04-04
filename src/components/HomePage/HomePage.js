@@ -1,7 +1,8 @@
 import React from 'react';
 import img from '../../images/gaiming-headset.png';
+import ReviewSection from '../ReviewSection/ReviewSection';
 import './HomePage.css';
-import ReviewSection from './ReviewSection/ReviewSection';
+
 
 const HomePage = () => {
   return (
