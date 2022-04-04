@@ -7,8 +7,8 @@ import './HomePage.css';
 const HomePage = () => {
   return (
     <>
-      <section className="hero grid grid-cols-2 justify-center items-center bg-indigo-700">
-        <div className="product-content pl-16">
+      <section className="hero grid grid-cols-1 md:grid-cols-2 justify-center items-center bg-indigo-700">
+        <div className="product-content pl-16 order-2 md:order-1 mb-10 md:mb-0">
           <h1 className="hero-title1 font-bold text-4xl md:text-7xl text-emerald-400 font-mono">
             LIKE YOU
           </h1>
@@ -24,7 +24,7 @@ const HomePage = () => {
             heard.
           </p>
         </div>
-        <div className="product-img flex justify-center">
+        <div className="product-img flex justify-center order-1 md:order-2 mb-10 md:mb-0">
           <img className="h-screen" src={img} alt="" />
         </div>
       </section>

@@ -1,8 +1,11 @@
+import { useNavigate } from 'react-router-dom';
 import useProduct from '../../hooks/useProduct';
 import SingleProduct from '../SingleProduct/SingleProduct';
 import './ReviewSection.css';
+import Reviews from '../Reviews/Reviews';
 
 const ReviewSection = () => {
+  const navigate = useNavigate();
   //custom hooks
   const [products] = useProduct();
   const myProducts = products.slice(0, 3);
@@ -18,7 +21,7 @@ const ReviewSection = () => {
         ))}
       </div>
       <div className="text-center pb-10">
-        <button className="see-more-btn text-3xl text-gray-200 px-10 py-1">See All Reviews</button>
+        <button onClick={() => navigate("/reviews")} className="see-more-btn text-3xl text-gray-200 px-10 py-1">See All Reviews</button>
       </div>
     </div>
   );
