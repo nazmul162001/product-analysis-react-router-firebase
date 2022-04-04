@@ -15,7 +15,7 @@ const SingleProduct = (props) => {
             Name: {name}{' '}
           </h2>
           <p className="py-5 text-gray-400">{review.slice(0, 200)}</p>
-          <p className='text-gray-200'>
+          <p className='text-gray-200 text-2xl'>
             <Rating
               initialRating={ratings}
               emptySymbol={<FontAwesomeIcon icon={faStar} />}
