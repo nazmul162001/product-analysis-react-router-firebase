@@ -2,93 +2,30 @@ import React from 'react';
 
 const Blogs = () => {
   return (
-<div className="accordion accordion-flush" id="accordionFlushExample">
-  <div className="accordion-item border-t-0 border-l-0 border-r-0 rounded-none bg-white border border-gray-200">
-    <h2 className="accordion-header mb-0" id="flush-headingOne">
-      <button className="accordion-button
-    relative
-    flex
-    items-center
-    w-full
-    py-4
-    px-5
-    text-base text-gray-800 text-left
-    bg-white
-    border-0
-    rounded-none
-    transition
-    focus:outline-none" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
-        aria-expanded="false" aria-controls="flush-collapseOne">
-        Accordion Item #1
-      </button>
-    </h2>
-    <div id="flush-collapseOne" className="accordion-collapse border-0 collapse show"
-      aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-      <div className="accordion-body py-4 px-5">Placeholder content for this accordion, which is intended to
-        demonstrate
-        the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+    <div>
+      <div className="simantic-element pt-12 px-5">
+        <h1 className="text-3xl font-mono">What is Simantic element?</h1>
+        <p className='text-xl text-gray-500'>
+          {' '}
+          <li>
+            Simantic Tag বলতে সাধারণত যেসকল ইলিমেন্ট বা ট্যাগ এর মিনিংফুল অর্থ
+            আছে যা দেখে ব্রাউজার এবং ডেভেলপাররা সহজেই বুঝতে পারে যে এই ইলিমেন্ট
+            এর ভিতরে কি থাকতে পারে। যেমন: form, table, article, aside, header,
+            footer, nav, main, section এই ট্যাগ গুলো দেখে সহজেই কোড এর বিষয়
+            বুঝতে পারা যায়। <br />
+            অপরদিকে div , span এই ট্যাগ বা ইলিমেন্ট গুলো দেখে কোড সম্পর্কে বা
+            কন্টেন্ট সম্পর্কে বুঝতে পারা যায় না। এজন্য এগুলোকে non-simantic
+            ট্যাগ বলা হয়।
+          </li>
+        </p>
+        <h1 className="text-3xl font-mono mt-5">What is inline, block & inline-block element?</h1>
+        <p>
+          <li>
+
+          </li>
+        </p>
+      </div>
     </div>
-  </div>
-  <div className="accordion-item border-l-0 border-r-0 rounded-none bg-white border border-gray-200">
-    <h2 className="accordion-header mb-0" id="flush-headingTwo">
-      <button className="accordion-button
-    collapsed
-    relative
-    flex
-    items-center
-    w-full
-    py-4
-    px-5
-    text-base text-gray-800 text-left
-    bg-white
-    border-0
-    rounded-none
-    transition
-    focus:outline-none" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo"
-        aria-expanded="false" aria-controls="flush-collapseTwo">
-        Accordion Item #2
-      </button>
-    </h2>
-    <div id="flush-collapseTwo" className="accordion-collapse border-0 collapse" aria-labelledby="flush-headingTwo"
-      data-bs-parent="#accordionFlushExample">
-      <div className="accordion-body py-4 px-5">Placeholder content for this accordion, which is intended to
-        demonstrate
-        the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this
-        being
-        filled with some actual content.</div>
-    </div>
-  </div>
-  <div className="accordion-item border-l-0 border-r-0 border-b-0 rounded-none bg-white border border-gray-200">
-    <h2 className="accordion-header mb-0" id="flush-headingThree">
-      <button className="accordion-button
-    collapsed
-    relative
-    flex
-    items-center
-    w-full
-    py-4
-    px-5
-    text-base text-gray-800 text-left
-    bg-white
-    border-0
-    rounded-none
-    transition
-    focus:outline-none" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree"
-        aria-expanded="false" aria-controls="flush-collapseThree">
-        Accordion Item #3
-      </button>
-    </h2>
-    <div id="flush-collapseThree" className="accordion-collapse collapse" aria-labelledby="flush-headingThree"
-      data-bs-parent="#accordionFlushExample">
-      <div className="accordion-body py-4 px-5">Placeholder content for this accordion, which is intended to
-        demonstrate
-        the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting
-        happening here in terms of content, but just filling up the space to make it look, at least at first
-        glance,
-        a bit more representative of how this would look in a real-world application.</div>
-    </div>
-  </div>
-</div>
   );
 };
 
