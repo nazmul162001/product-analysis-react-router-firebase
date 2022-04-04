@@ -1,5 +1,8 @@
 import React from 'react';
 import './SingleProduct.css';
+import Rating from 'react-rating';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const SingleProduct = (props) => {
   const { name, picture, ratings, review } = props.product;
@@ -12,10 +15,16 @@ const SingleProduct = (props) => {
             Name: {name}{' '}
           </h2>
           <p className="py-5 text-gray-400">{review.slice(0, 200)}</p>
-          <p>
-            <span className="font-medium text-orange-300">
-              Ratings: {ratings} stars
-            </span>
+          <p className='text-gray-200'>
+            <Rating
+              initialRating={ratings}
+              emptySymbol={<FontAwesomeIcon icon={faStar} />}
+              fullSymbol={
+                <FontAwesomeIcon style={{ color: 'goldenrod' }} icon={faStar} />
+              }
+              readonly
+            ></Rating>
+            ({ratings})
           </p>
         </div>
       </div>

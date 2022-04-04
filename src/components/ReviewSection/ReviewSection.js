@@ -2,7 +2,6 @@ import { useNavigate } from 'react-router-dom';
 import useProduct from '../../hooks/useProduct';
 import SingleProduct from '../SingleProduct/SingleProduct';
 import './ReviewSection.css';
-import Reviews from '../Reviews/Reviews';
 
 const ReviewSection = () => {
   const navigate = useNavigate();
