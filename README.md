@@ -1,6 +1,6 @@
 # Review Gallery Project with React-router & tailwind Combination
 
-This project host on Netlify [Live Link:](https://github.com/facebook/create-react-app).
+This project host on Netlify [Live Link:](https://review-gallery.netlify.app/).
 
 ## Project Overview
 * Home page: Simply review a Headphone & Display 3 Customer review & ratings total of 7 review
