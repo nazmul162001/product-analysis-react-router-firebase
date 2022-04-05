@@ -3,7 +3,6 @@ import img from '../../images/gaiming-headset.png';
 import ReviewSection from '../ReviewSection/ReviewSection';
 import './HomePage.css';
 
-
 const HomePage = () => {
   return (
     <>
@@ -23,6 +22,12 @@ const HomePage = () => {
             percussions, baselines and solos that were always there but never
             heard.
           </p>
+          <button
+            type="button"
+            class="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 mt-3 px-8 py-2 rounded-md"
+          >
+            Buy Now
+          </button>
         </div>
         <div className="product-img flex justify-center order-1 md:order-2 mb-10 md:mb-0">
           <img className="h-screen" src={img} alt="" />

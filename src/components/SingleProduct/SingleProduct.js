@@ -9,7 +9,7 @@ const SingleProduct = (props) => {
   return (
     <>
       <div className="customer-review flex justify-center items-center">
-        <div className="review-content rounded-2xl p-5 h-[400px]">
+        <div className="review-content rounded-2xl p-5 h-[450px]">
           <img className="w-28 h-28 rounded-3xl mx-auto" src={picture} alt="" />
           <h2 className="py-2 font-mono text-slate-300 text-xl">
             Name: {name}{' '}
