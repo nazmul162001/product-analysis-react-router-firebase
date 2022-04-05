@@ -54,7 +54,7 @@ const MyChart = () => {
   return (
     <div className='investment-chart'>
       <h2 className="text-3xl text-center text-gray-400 pt-10">
-        Our Annual investment, sell & revenue <br></br> with BarChart{' '}
+        Investment vs Revenue with BarChart{' '}
       </h2>
       <div className="bar-chart flex justify-center my-10">
         <BarChart width={730} height={350} data={data}>
@@ -63,14 +63,12 @@ const MyChart = () => {
           <YAxis />
           <Tooltip></Tooltip>
           <Legend />
-          <Bar dataKey="month" fill="#e67e22" />
           <Bar dataKey="investment" fill="#8884d8" />
           <Bar dataKey="revenue" fill="#82ca9d" />
-          <Bar dataKey="sell" fill="#8e44ad" />
         </BarChart>
       </div>
       <h2 className="text-3xl text-center text-gray-400 pt-10">
-        Our Annual investment, sell & revenue <br></br> with LineChart{' '}
+        Monthly sell with LineChart{' '}
       </h2>
       {/* lineChart  */}
       <div className="line-chart flex justify-center items-center">
@@ -85,8 +83,6 @@ const MyChart = () => {
           <Tooltip />
           <Legend />
           <Line type="monotone" dataKey="month" stroke="#e67e22" />
-          <Line type="monotone" dataKey="investment" stroke="#82ca9d" />
-          <Line type="monotone" dataKey="revenue" stroke="#8884d8" />
           <Line type="monotone" dataKey="sell" stroke="#8e44ad" />
         </LineChart>
       </div>
