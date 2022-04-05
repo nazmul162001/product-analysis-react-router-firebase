@@ -1,9 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import img from '../../images/gaiming-headset.png';
 import ReviewSection from '../ReviewSection/ReviewSection';
 import './HomePage.css';
 
 const HomePage = () => {
+  const navigate = useNavigate();
   return (
     <>
       <section className="hero grid grid-cols-1 md:grid-cols-2 justify-center items-center bg-indigo-700">
@@ -22,7 +24,7 @@ const HomePage = () => {
             percussions, baselines and solos that were always there but never
             heard.
           </p>
-          <button
+          <button onClick={() => navigate('/about')}
             type="button"
             class="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 mt-3 px-8 py-2 rounded-md"
           >
