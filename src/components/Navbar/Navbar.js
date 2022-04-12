@@ -6,6 +6,7 @@ import { MenuAlt1Icon, XIcon } from '@heroicons/react/solid';
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
+  
 
   return (
     <div className="sticky top-0 z-50">
