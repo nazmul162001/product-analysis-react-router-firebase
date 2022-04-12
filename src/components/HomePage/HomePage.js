@@ -26,7 +26,7 @@ const HomePage = () => {
           </p>
           <button onClick={() => navigate('/about')}
             type="button"
-            class="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 mt-3 px-8 py-2 rounded-md"
+            className="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 mt-3 px-8 py-2 rounded-md"
           >
             Buy Now
           </button>

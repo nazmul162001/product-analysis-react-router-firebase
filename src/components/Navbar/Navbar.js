@@ -53,7 +53,7 @@ const Navbar = () => {
         <button
           onClick={() => navigate('/login')}
           type="button"
-          class="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 px-8 py-2 rounded-md absolute top-4 right-6"
+          className="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 px-8 py-2 rounded-md absolute top-4 right-6"
         >
           Login
         </button>
