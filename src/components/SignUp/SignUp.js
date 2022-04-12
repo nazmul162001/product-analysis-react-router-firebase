@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import auth from '../../firebase.init';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { FcGoogle } from 'react-icons/fc';
+import { FaFacebook } from 'react-icons/fa';
 
 const SignUp = ({ setclicked }) => {
   const [email, setEmail] = useState('');
@@ -39,7 +41,7 @@ const SignUp = ({ setclicked }) => {
     // console.log(name, email, password);
     if (password !== confirmPassword) {
       serErr('password do not matched');
-      toast.error('Password do not matched')
+      toast.error('Password do not matched');
       return;
     }
     createUserWithEmailAndPassword(email, password);
@@ -57,7 +59,11 @@ const SignUp = ({ setclicked }) => {
       </div>
       <div className="input-field">
         <i className="fas fa-lock"></i>
-        <input onChange={handlePassword} type="password" placeholder="Password" />
+        <input
+          onChange={handlePassword}
+          type="password"
+          placeholder="Password"
+        />
       </div>
       <div className="input-field">
         <i className="fas fa-lock"></i>
@@ -72,16 +78,10 @@ const SignUp = ({ setclicked }) => {
       <p className="social-text">Or Sign up with social platforms</p>
       <div className="social-media">
         <a href="#" className="social-icon">
-          <i className="fab fa-facebook-f"></i>
+          <FaFacebook />
         </a>
         <a href="#" className="social-icon">
-          <i className="fab fa-twitter"></i>
-        </a>
-        <a href="#" className="social-icon">
-          <i className="fab fa-google"></i>
-        </a>
-        <a href="#" className="social-icon">
-          <i className="fab fa-linkedin-in"></i>
+          <FcGoogle />
         </a>
       </div>
       <ToastContainer

@@ -5,6 +5,8 @@ import auth from '../../firebase.init';
 import SignUp from '../SignUp/SignUp';
 import ToggleSignInUp from '../ToggleSignInUp/ToggleSignInUp';
 import './Login.css';
+import { FcGoogle } from 'react-icons/fc';
+import { FaFacebook } from 'react-icons/fa';
 
 const Login = () => {
   const [clicked, setclicked] = useState('');
@@ -63,16 +65,10 @@ const Login = () => {
             <p className="social-text">Or Sign in with social platforms</p>
             <div className="social-media">
               <a href="#" className="social-icon">
-                <i className="fab fa-facebook-f"></i>
+                <FaFacebook />
               </a>
               <a href="#" className="social-icon">
-                <i className="fab fa-twitter"></i>
-              </a>
-              <a href="#" className="social-icon">
-                <i className="fab fa-google"></i>
-              </a>
-              <a href="#" className="social-icon">
-                <i className="fab fa-linkedin-in"></i>
+                <FcGoogle />
               </a>
             </div>
           </form>
