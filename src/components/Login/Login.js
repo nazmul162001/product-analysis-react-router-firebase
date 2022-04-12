@@ -7,8 +7,12 @@ import ToggleSignInUp from '../ToggleSignInUp/ToggleSignInUp';
 import './Login.css';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebook } from 'react-icons/fa';
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
+  const googleProvider = new GoogleAuthProvider();
   const [clicked, setclicked] = useState('');
   const [err, setErr] = useState('');
   const [email, setEmail] = useState('');
@@ -32,14 +36,26 @@ const Login = () => {
     e.preventDefault();
     signInWithEmailAndPassword(email, password);
     // confirm user
-    if(!user){
+    if (!user) {
       setErr('User not found! please signUp or input valid info');
       return;
     }
     if (user) {
       navigate('/');
       setErr('');
-    } 
+    }
+  };
+
+  // handle google signIN
+  const handleGoogle = () => {
+    signInWithPopup(auth, googleProvider)
+      .then((res) => {
+        const user = res.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        toast.error('login error, try again');
+      });
   };
 
   return (
@@ -67,7 +83,7 @@ const Login = () => {
               <a href="#" className="social-icon">
                 <FaFacebook />
               </a>
-              <a href="#" className="social-icon">
+              <a onClick={handleGoogle} href="#" className="social-icon">
                 <FcGoogle />
               </a>
             </div>
@@ -78,6 +94,17 @@ const Login = () => {
       </div>
       {/* Toggle signUp  */}
       <ToggleSignInUp setclicked={setclicked} />
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 };

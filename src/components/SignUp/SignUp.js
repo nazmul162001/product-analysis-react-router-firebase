@@ -5,8 +5,10 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebook } from 'react-icons/fa';
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 
 const SignUp = ({ setclicked }) => {
+  const googleProvider = new GoogleAuthProvider();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -43,11 +45,27 @@ const SignUp = ({ setclicked }) => {
       serErr('password do not matched');
       toast.error('Password do not matched');
       return;
+    } else if (password.length < 6) {
+      serErr('password must be 6 character or more');
+      toast.error('password is too short');
+      return;
     }
     createUserWithEmailAndPassword(email, password);
     toast.success('successfully signUp, Please! login now');
     serErr('');
     return;
+  };
+
+  // handle google signIN
+  const handleGoogle = () => {
+    signInWithPopup(auth, googleProvider)
+      .then((res) => {
+        const user = res.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        toast.error('login error, try again');
+      });
   };
 
   return (
@@ -80,7 +98,7 @@ const SignUp = ({ setclicked }) => {
         <a href="#" className="social-icon">
           <FaFacebook />
         </a>
-        <a href="#" className="social-icon">
+        <a onClick={handleGoogle} href="#" className="social-icon">
           <FcGoogle />
         </a>
       </div>
