@@ -17,16 +17,13 @@ const Login = () => {
   const [err, setErr] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [signInWithEmailAndPassword, user] =
+  const [signInWithEmailAndPassword, user, error] =
     useSignInWithEmailAndPassword(auth);
 
   // for private route
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || '/';
-
-  //display usr 
-  const [users, setUsers] = useState({})
 
   // handle email
   const handleEmail = (e) => {
@@ -38,23 +35,25 @@ const Login = () => {
     setPassword(e.target.value);
   };
 
+  if (user) {
+    navigate(from, { replace: true });
+    // console.log(user);
+  }
+
+
   // handle signIn
   const handleSignIn = (e) => {
     e.preventDefault();
-    signInWithEmailAndPassword(email, password);
-    // // confirm user
-    if (user) {
-      navigate(from, { replace: true });
-      toast.success('successfully login')
-      setErr('');
+    signInWithEmailAndPassword(email, password)
+    .then(res => {
+      const user = res.user;
       console.log(user);
-    }
-    if (!user) {
-      setErr('user not found!!! please signUp or input valid info');
+    })
+    .catch(error => {
+      setErr('user not found! please sign Up or input valid info')
       toast.error('user not found')
-      return;
-    }
-    return;
+      console.log(error);
+    })
   };
 
   // handle google signIN
@@ -62,12 +61,11 @@ const Login = () => {
     signInWithPopup(auth, googleProvider)
       .then((res) => {
         const user = res.user;
-        toast.success('successfully login')
-        setUsers(user);
+        toast.success('successfully login');
         console.log(user);
       })
       .catch((error) => {
-        toast.error('login faild, try again')
+        toast.error('login faild, try again');
         return;
       });
   };
@@ -114,17 +112,7 @@ const Login = () => {
       </div>
       {/* Toggle signUp  */}
       <ToggleSignInUp setclicked={setclicked} />
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
+      <ToastContainer/>
     </div>
   );
 };

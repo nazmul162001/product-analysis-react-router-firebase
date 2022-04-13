@@ -14,7 +14,7 @@ const Contact = () => {
                 Name
               </label>
               <input
-                tabindex="0"
+                
                 arial-label="Please input name"
                 type="name"
                 className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100"
@@ -26,7 +26,7 @@ const Contact = () => {
                 Email Address
               </label>
               <input
-                tabindex="0"
+                
                 arial-label="Please input email address"
                 type="name"
                 className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100"
@@ -40,7 +40,7 @@ const Contact = () => {
                 Company name
               </label>
               <input
-                tabindex="0"
+                
                 role="input"
                 arial-label="Please input company name"
                 type="name"
@@ -53,7 +53,7 @@ const Contact = () => {
                 Country
               </label>
               <input
-                tabindex="0"
+                
                 arial-label="Please input country name"
                 type="name"
                 className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100"
@@ -67,7 +67,7 @@ const Contact = () => {
                 Message
               </label>
               <textarea
-                tabindex="0"
+                
                 aria-label="leave a message"
                 role="textbox"
                 type="name"
