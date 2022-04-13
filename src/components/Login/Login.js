@@ -8,6 +8,8 @@ import './Login.css';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebook } from 'react-icons/fa';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
   const googleProvider = new GoogleAuthProvider();
@@ -33,20 +35,21 @@ const Login = () => {
     setPassword(e.target.value);
   };
 
-  // // confirm user
-  if (user) {
-    navigate(from, { replace: true });
-    setErr('');
-  }
-  // if(!user){
-  //   toast.error('user not found')
-  //   setErr('user not found')
-  // }
-
   // handle signIn
   const handleSignIn = (e) => {
     e.preventDefault();
     signInWithEmailAndPassword(email, password);
+    // // confirm user
+    if (user) {
+      navigate(from, { replace: true });
+      toast.success('successfully login')
+      setErr('');
+    }
+    if (!user) {
+      setErr('user not found!!! please signUp or input valid info');
+      toast.error('user not found')
+      return;
+    }
     return;
   };
 
@@ -55,10 +58,12 @@ const Login = () => {
     signInWithPopup(auth, googleProvider)
       .then((res) => {
         const user = res.user;
+        toast.success('successfully login')
         console.log(user);
       })
       .catch((error) => {
-        console.log(error);
+        toast.error('login faild, try again')
+        return;
       });
   };
 
@@ -104,6 +109,17 @@ const Login = () => {
       </div>
       {/* Toggle signUp  */}
       <ToggleSignInUp setclicked={setclicked} />
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 };

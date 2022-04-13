@@ -4,11 +4,17 @@ import './Navbar.css';
 import { MenuAlt1Icon, XIcon } from '@heroicons/react/solid';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import { signOut } from 'firebase/auth';
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const [user] = useAuthState(auth);
+
+  // handle signOut
+  const handleSignOut = e => {
+    signOut(auth)
+  }
 
   return (
     <div className="sticky top-0 z-50">
@@ -55,6 +61,7 @@ const Navbar = () => {
         </NavLink>
         {user ? (
           <button
+            onClick={handleSignOut}
             type="button"
             className="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 px-8 py-2 rounded-md absolute top-4 right-6"
           >

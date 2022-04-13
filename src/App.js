@@ -14,29 +14,48 @@ function App() {
     <div className="App">
       <Navbar />
       <Routes>
-        <Route path='/' element={
-          <RequireAuth>
-            <HomePage></HomePage>
-          </RequireAuth>
-        }></Route>
-        <Route path='/reviews' element={
-          <RequireAuth>
-            <Reviews></Reviews>
-          </RequireAuth>
-        }></Route>
-        <Route path='/dashboard' element={
-          <RequireAuth>
-            <MyChart></MyChart>
-          </RequireAuth>
-        }></Route>
-        <Route path='/blogs' element={
-          <RequireAuth>
-            <Blogs></Blogs>
-          </RequireAuth>
-        }></Route>
-        <Route path='/about' element={<Contact></Contact>}></Route>
-        <Route path='/login' element={<Login></Login>}></Route>
-        <Route path='*' element={<NotFound></NotFound>}></Route>
+        <Route
+          path="/"
+          element={
+            <RequireAuth>
+              <HomePage></HomePage>
+            </RequireAuth>
+          }
+        ></Route>
+        <Route
+          path="/reviews"
+          element={
+            <RequireAuth>
+              <Reviews></Reviews>
+            </RequireAuth>
+          }
+        ></Route>
+        <Route
+          path="/dashboard"
+          element={
+            <RequireAuth>
+              <MyChart></MyChart>
+            </RequireAuth>
+          }
+        ></Route>
+        <Route
+          path="/blogs"
+          element={
+            <RequireAuth>
+              <Blogs></Blogs>
+            </RequireAuth>
+          }
+        ></Route>
+        <Route
+          path="/about"
+          element={
+            <RequireAuth>
+              <Contact></Contact>
+            </RequireAuth>
+          }
+        ></Route>
+        <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
     </div>
   );
