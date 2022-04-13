@@ -25,6 +25,9 @@ const Login = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || '/';
 
+  //display usr 
+  const [users, setUsers] = useState({})
+
   // handle email
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -44,6 +47,7 @@ const Login = () => {
       navigate(from, { replace: true });
       toast.success('successfully login')
       setErr('');
+      console.log(user);
     }
     if (!user) {
       setErr('user not found!!! please signUp or input valid info');
@@ -59,6 +63,7 @@ const Login = () => {
       .then((res) => {
         const user = res.user;
         toast.success('successfully login')
+        setUsers(user);
         console.log(user);
       })
       .catch((error) => {

@@ -59,6 +59,12 @@ const Navbar = () => {
         >
           About
         </NavLink>
+        <div className='flex items-center absolute right-[200px]'>
+        <span className='text-slate-50 font-mono font-bold text-xl pr-3'> {user?.displayName || user?.displayName} </span>
+        <div className="img w-12 h-12 rounded-full">
+        <img className='rounded-full' src= {user?.photoURL || user?.photoURL} alt="" />
+        </div>
+        </div>
         {user ? (
           <button
             onClick={handleSignOut}
