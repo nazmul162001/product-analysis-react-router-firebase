@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import SignUp from '../SignUp/SignUp';
 import ToggleSignInUp from '../ToggleSignInUp/ToggleSignInUp';
@@ -8,8 +8,6 @@ import './Login.css';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebook } from 'react-icons/fa';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
   const googleProvider = new GoogleAuthProvider();
@@ -19,7 +17,11 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [signInWithEmailAndPassword, user] =
     useSignInWithEmailAndPassword(auth);
+
+  // for private route
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
 
   // handle email
   const handleEmail = (e) => {
@@ -31,19 +33,21 @@ const Login = () => {
     setPassword(e.target.value);
   };
 
+  // // confirm user
+  if (user) {
+    navigate(from, { replace: true });
+    setErr('');
+  }
+  // if(!user){
+  //   toast.error('user not found')
+  //   setErr('user not found')
+  // }
+
   // handle signIn
   const handleSignIn = (e) => {
     e.preventDefault();
     signInWithEmailAndPassword(email, password);
-    // confirm user
-    if (!user) {
-      setErr('User not found! please signUp or input valid info');
-      return;
-    }
-    if (user) {
-      navigate('/');
-      setErr('');
-    }
+    return;
   };
 
   // handle google signIN
@@ -54,7 +58,7 @@ const Login = () => {
         console.log(user);
       })
       .catch((error) => {
-        toast.error('login error, try again');
+        console.log(error);
       });
   };
 
@@ -63,6 +67,10 @@ const Login = () => {
       <div className="forms-container">
         <div className="signin-signup">
           <form onSubmit={handleSignIn} className="sign-in-form">
+            <h3 className="text-xl text-red-700 font-mono font-bold">
+              Please Login first to explore this site !!!
+            </h3>
+            <p>* you can sign up with any random email, no need to verify *</p>
             <h2 className="title">Sign in</h2>
             <div className="input-field">
               <i className="fas fa-envelope"></i>
@@ -76,7 +84,9 @@ const Login = () => {
                 placeholder="Password"
               />
             </div>
+            {/* error  */}
             <p className="text-red-600"> {err} </p>
+
             <input type="submit" value="Login" className="btn solid" />
             <p className="social-text">Or Sign in with social platforms</p>
             <div className="social-media">
@@ -94,17 +104,6 @@ const Login = () => {
       </div>
       {/* Toggle signUp  */}
       <ToggleSignInUp setclicked={setclicked} />
-      <ToastContainer
-        position="top-center"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
     </div>
   );
 };

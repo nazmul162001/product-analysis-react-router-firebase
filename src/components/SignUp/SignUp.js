@@ -38,7 +38,7 @@ const SignUp = ({ setclicked }) => {
   }
 
   //handle submit
-  const handleSubmit = (e) => {
+  const handleSignUp = (e) => {
     e.preventDefault();
     // console.log(name, email, password);
     if (password !== confirmPassword) {
@@ -69,7 +69,7 @@ const SignUp = ({ setclicked }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="sign-up-form">
+    <form onSubmit={handleSignUp} className="sign-up-form">
       <h2 className="title">Sign up</h2>
       <div className="input-field">
         <i className="fas fa-envelope"></i>
@@ -103,7 +103,7 @@ const SignUp = ({ setclicked }) => {
         </a>
       </div>
       <ToastContainer
-        position="top-center"
+        position="top-left"
         autoClose={3000}
         hideProgressBar={false}
         newestOnTop={false}

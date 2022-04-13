@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import './Navbar.css';
 import { MenuAlt1Icon, XIcon } from '@heroicons/react/solid';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
-  
+  const [user] = useAuthState(auth);
 
   return (
     <div className="sticky top-0 z-50">
@@ -51,13 +53,22 @@ const Navbar = () => {
         >
           About
         </NavLink>
-        <button
-          onClick={() => navigate('/login')}
-          type="button"
-          className="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 px-8 py-2 rounded-md absolute top-4 right-6"
-        >
-          Login
-        </button>
+        {user ? (
+          <button
+            type="button"
+            className="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 px-8 py-2 rounded-md absolute top-4 right-6"
+          >
+            Log Out
+          </button>
+        ) : (
+          <button
+            onClick={() => navigate('/login')}
+            type="button"
+            className="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 px-8 py-2 rounded-md absolute top-4 right-6"
+          >
+            Login
+          </button>
+        )}
       </nav>
     </div>
   );
