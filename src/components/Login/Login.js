@@ -11,14 +11,13 @@ import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Login = () => {
+function Login() {
   const googleProvider = new GoogleAuthProvider();
   const [clicked, setclicked] = useState('');
   const [err, setErr] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [signInWithEmailAndPassword, user, error] =
-    useSignInWithEmailAndPassword(auth);
+  const [signInWithEmailAndPassword, user, error] = useSignInWithEmailAndPassword(auth);
 
   // for private route
   const navigate = useNavigate();
@@ -45,15 +44,15 @@ const Login = () => {
   const handleSignIn = (e) => {
     e.preventDefault();
     signInWithEmailAndPassword(email, password)
-    .then(res => {
-      const user = res.user;
-      console.log(user);
-    })
-    .catch(error => {
-      setErr('user not found! please sign Up or input valid info')
-      toast.error('user not found')
-      console.log(error);
-    })
+      .then(res => {
+        const user = res.user;
+        console.log(user);
+      })
+      .catch(error => {
+        setErr('user not found! please sign Up or input valid info');
+        toast.error('user not found');
+        console.log(error);
+      });
   };
 
   // handle google signIN
@@ -75,10 +74,9 @@ const Login = () => {
       <div className="forms-container">
         <div className="signin-signup">
           <form onSubmit={handleSignIn} className="sign-in-form">
-            <h3 className="text-xl text-red-700 font-mono font-bold">
-              Please Login first to explore this site !!!
-            </h3>
-            <p>* you can sign up with any random email, no need to verify *</p>
+            <p>SignUp with your email Or Use this email:</p>
+            <p><strong>Email:</strong> abc@gmail.com</p>
+            <p><strong>Pass:</strong> 112233</p>
             <h2 className="title">Sign in</h2>
             <div className="input-field">
               <i className="fas fa-envelope"></i>
@@ -89,8 +87,7 @@ const Login = () => {
               <input
                 onChange={handlePassword}
                 type="password"
-                placeholder="Password"
-              />
+                placeholder="Password" />
             </div>
             {/* error  */}
             <p className="text-red-600"> {err} </p>
@@ -98,10 +95,10 @@ const Login = () => {
             <input type="submit" value="Login" className="btn solid" />
             <p className="social-text">Or Sign in with social platforms</p>
             <div className="social-media">
-              <a href="#" className="social-icon">
+              <a href="#_" className="social-icon">
                 <FaFacebook />
               </a>
-              <a onClick={handleGoogle} href="#" className="social-icon">
+              <a onClick={handleGoogle} href="#_" className="social-icon">
                 <FcGoogle />
               </a>
             </div>
@@ -112,9 +109,9 @@ const Login = () => {
       </div>
       {/* Toggle signUp  */}
       <ToggleSignInUp setclicked={setclicked} />
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
-};
+}
 
 export default Login;
